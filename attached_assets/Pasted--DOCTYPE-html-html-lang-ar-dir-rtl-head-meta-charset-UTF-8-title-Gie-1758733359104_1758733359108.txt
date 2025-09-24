@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>إنشاء حساب - Giedo Mall</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signup-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #219150;
+    }
+    .note {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>إنشاء حساب جديد</h2>
+    <form onsubmit="signup(event)">
+      <input type="text" id="username" placeholder="اسم المستخدم" required>
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+      <input type="password" id="password" placeholder="كلمة المرور" required>
+      <button type="submit">تسجيل</button>
+    </form>
+    <div class="note">تجريبي فقط - بدون قاعدة بيانات</div>
+  </div>
+
+  <script>
+    function signup(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+
+      // تخزين تجريبي في localStorage
+      localStorage.setItem("user", JSON.stringify({ user, email, pass }));
+      alert("✅ تم إنشاء الحساب بنجاح");
+      window.location.href = "login.html"; // بعد التسجيل يروح لصفحة الدخول
+    }
+  </script>
+</body>
+</html>
